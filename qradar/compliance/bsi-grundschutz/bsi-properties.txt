@@ -1,0 +1,14 @@
+# BSI IT-Grundschutz Custom Properties
+# These properties support BSI compliance monitoring
+
+# BSI Grundschutz System Events
+bsi_system_events=select * from events where eventname MATCHES '.*Policy.*' OR eventname MATCHES '.*Configuration.*' OR eventname MATCHES '.*Security.*Setting.*'
+
+# BSI Security Baseline Monitoring
+bsi_baseline_violations=select hostname, eventname, count(*) from events where eventname MATCHES '.*Policy.*Changed.*' OR eventname MATCHES '.*Configuration.*Modified.*' group by hostname, eventname
+
+# BSI Network Security Monitoring
+bsi_network_events=select sourceip, destinationip, count(*) from flows where destinationport IN (135,139,445,3389) group by sourceip, destinationip having count(*) > 50
+
+# BSI Administrative Activities
+bsi_admin_activities=select username, hostname, count(*) from events where eventname MATCHES '.*Admin.*' AND eventtime > (NOW() - INTERVAL '24' HOUR) group by username, hostname

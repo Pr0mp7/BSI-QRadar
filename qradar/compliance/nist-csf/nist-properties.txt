@@ -1,0 +1,14 @@
+# NIST Cybersecurity Framework Custom Properties
+# These properties support NIST CSF implementation
+
+# NIST CSF Detect Function Events
+nist_detect_events=select * from events where categoryname MATCHES '.*Monitoring.*' OR categoryname MATCHES '.*Detection.*' OR categoryname MATCHES '.*Anomaly.*'
+
+# NIST CSF Network Monitoring
+nist_network_monitoring=select sourceip, destinationip, count(*) from flows where bytessent > 10485760 group by sourceip, destinationip having count(*) > 5
+
+# NIST CSF Asset Discovery
+nist_asset_discovery=select hostname, sourceip, count(*) from events where eventname MATCHES '.*Discovery.*' OR eventname MATCHES '.*Enumeration.*' group by hostname, sourceip
+
+# NIST CSF Baseline Deviation
+nist_baseline_deviation=select hostname, eventname, magnitude, count(*) from events where magnitude > 5 AND eventtime > (NOW() - INTERVAL '1' HOUR) group by hostname, eventname, magnitude

@@ -1,0 +1,35 @@
+title: Data Exfiltration Detection
+id: 5h98fe90-64f5-7i0h-e7h3-0h456789012d
+status: experimental
+description: Detects potential data exfiltration based on traffic patterns
+author: BSI-QRadar Security Team
+date: 2024/01/01
+modified: 2024/01/01
+tags:
+    - attack.exfiltration
+    - attack.t1041
+    - attack.t1020
+    - attack.t1030
+    - attack.t1048
+logsource:
+    category: network
+detection:
+    selection:
+        bytes_out: '>=10485760'  # 10MB
+        protocol: tcp
+    timeframe: 5m
+    condition: selection
+falsepositives:
+    - Legitimate file transfers
+    - Backup operations
+    - Software updates
+    - Cloud synchronization
+level: medium
+fields:
+    - src_ip
+    - dest_ip
+    - bytes_out
+    - bytes_in
+    - duration
+    - protocol
+    - dest_port

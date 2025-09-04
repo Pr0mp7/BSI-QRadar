@@ -1,0 +1,45 @@
+title: Insider Threat Detection
+id: 7j10hg02-86h7-9k2j-g9j5-2j678901234f
+status: experimental
+description: Detects potential insider threat activities
+author: BSI-QRadar Security Team
+date: 2024/01/01
+modified: 2024/01/01
+tags:
+    - attack.collection
+    - attack.t1005
+    - attack.t1039
+    - attack.t1074
+    - attack.t1119
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID:
+            - 4663  # File access
+            - 4656  # File handle requested
+        ObjectType: 'File'
+    filter:
+        ObjectName|contains:
+            - 'Confidential'
+            - 'Secret'
+            - 'Personal'
+            - 'Restricted'
+            - 'Internal'
+    condition: selection and filter
+    timeframe: 1h
+    count: 50
+falsepositives:
+    - Legitimate business activities
+    - Automated processes
+    - Document management systems
+    - Backup operations
+level: medium
+fields:
+    - EventID
+    - SubjectUserName
+    - ObjectName
+    - ProcessName
+    - AccessMask
+    - AccessReasons

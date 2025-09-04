@@ -1,0 +1,40 @@
+title: Lateral Movement Detection
+id: 6i09gf01-75g6-8j1i-f8i4-1i567890123e
+status: experimental
+description: Detects lateral movement patterns in network traffic
+author: BSI-QRadar Security Team
+date: 2024/01/01
+modified: 2024/01/01
+tags:
+    - attack.lateral_movement
+    - attack.t1021
+    - attack.t1021.001
+    - attack.t1021.002
+    - attack.t1076
+logsource:
+    category: network
+detection:
+    selection:
+        destination_port:
+            - 22   # SSH
+            - 3389 # RDP
+            - 445  # SMB
+            - 135  # RPC
+            - 5985 # WinRM
+            - 5986 # WinRM HTTPS
+        protocol: tcp
+    condition: selection | count(destination_ip) by source_ip > 5
+    timeframe: 10m
+falsepositives:
+    - Administrative activities
+    - Network scanning tools
+    - Legitimate management systems
+    - Jump servers
+level: high
+fields:
+    - src_ip
+    - dest_ip
+    - dest_port
+    - protocol
+    - connection_count
+    - unique_destinations

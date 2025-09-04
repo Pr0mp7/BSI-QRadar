@@ -1,0 +1,36 @@
+title: DNS Tunneling Detection
+id: 9l32ji04-08j9-1m4l-i1l7-4l890123456h
+status: experimental
+description: Detects DNS tunneling based on query patterns
+author: BSI-QRadar Security Team
+date: 2024/01/01
+modified: 2024/01/01
+tags:
+    - attack.exfiltration
+    - attack.t1071.004
+    - attack.t1048.003
+    - attack.t1132.001
+logsource:
+    category: dns
+detection:
+    selection:
+        query_length: '>=50'
+        query_type:
+            - 'TXT'
+            - 'NULL'
+            - 'CNAME'
+    condition: selection | count() by src_ip > 100
+    timeframe: 5m
+falsepositives:
+    - Legitimate long DNS queries
+    - DNS-based services
+    - DNSSEC validation
+    - DNS load balancing
+level: medium
+fields:
+    - src_ip
+    - query_name
+    - query_type
+    - query_length
+    - response_code
+    - query_count

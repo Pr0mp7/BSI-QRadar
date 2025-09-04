@@ -1,0 +1,42 @@
+title: Web Application Attack Detection
+id: 8k21ih03-97i8-0l3k-h0k6-3k789012345g
+status: stable
+description: Detects web application attacks based on HTTP patterns
+author: BSI-QRadar Security Team
+date: 2024/01/01
+modified: 2024/01/01
+tags:
+    - attack.initial_access
+    - attack.t1190
+    - attack.t1566
+    - attack.t1059.007
+    - attack.t1211
+logsource:
+    category: webserver
+detection:
+    selection:
+        c-uri-query|contains:
+            - 'UNION SELECT'
+            - '<script>'
+            - '../../../'
+            - 'exec('
+            - 'eval('
+            - 'cmd.exe'
+            - '/bin/sh'
+            - 'DROP TABLE'
+            - 'INSERT INTO'
+    condition: selection
+falsepositives:
+    - Legitimate application functionality
+    - Development testing
+    - Security testing tools
+    - Web application firewalls
+level: high
+fields:
+    - c-ip
+    - cs-uri-stem
+    - cs-uri-query
+    - cs-method
+    - sc-status
+    - cs-user-agent
+    - time-taken

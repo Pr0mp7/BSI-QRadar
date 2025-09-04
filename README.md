@@ -641,33 +641,11 @@ LIMIT [reasonable limit - typically 500-1000];
 7. **Code Review** durch Security Team
 8. **Integration** nach Approval
 
-## 📊 Roadmap & Zukunftspläne
-
-### Q4 2024
-- [ ] **Machine Learning Integration**: Anomaly detection mit QRadar Watson
-- [ ] **Threat Intelligence Automation**: MISP integration mit automated IOC enrichment
-- [ ] **Advanced APT Detection**: Nation-state specific detection logic
-- [ ] **Zero Trust Architecture**: Network micro-segmentation monitoring
-
-### Q1 2025  
-- [ ] **Cloud Security**: Multi-cloud SIEM integration (AWS, Azure, GCP)
-- [ ] **Container Security**: Kubernetes security monitoring
-- [ ] **OT/ICS Security**: Industrial control systems monitoring
-- [ ] **Supply Chain Security**: Software supply chain attack detection
-
-### Q2 2025
-- [ ] **Quantum-Safe Cryptography**: Post-quantum crypto transition monitoring
-- [ ] **AI/ML Threat Detection**: AI-powered attack pattern recognition
-- [ ] **Cyber Threat Intelligence**: Automated threat actor attribution
-- [ ] **Digital Forensics**: Automated evidence collection and analysis
-
 ## 📞 Support & Community
 
 ### Official Support Channels
+
 - **🎫 Technical Support**: [Create GitHub Issue](https://github.com/Pr0mp7/BSI-QRadar/issues)
-- **💬 Community Discord**: [Join BSI-QRadar Community](https://discord.gg/bsi-qradar)
-- **📧 Email Support**: bsi-qradar-support@[domain].com
-- **🚨 Security Issues**: security@[domain].com (PGP encrypted)
 
 ### German Government & BSI Resources
 - **🏛️ BSI Cyber-Sicherheitsberatung**: https://www.bsi.bund.de/cyber-security-consulting
@@ -682,10 +660,10 @@ LIMIT [reasonable limit - typically 500-1000];
 - **🛡️ NIST Cybersecurity Framework**: https://www.nist.gov/cyberframework
 
 ### Training & Certification
-- **🎓 BSI-QRadar Certified Analyst**: Internal certification program
-- **🏆 QRadar Advanced Deployment**: IBM certification path
+- **🎓 QRadar Certified Administrator**: IBM certification path
+- **🎓 QRadar Certified Analyst**: IBM certification
+- **🏆 QRadar Deployment Engineer**: IBM certification path
 - **📜 BSI Grundschutz Practitioner**: BSI certification program
-- **🎯 SIGMA Rule Development**: Community training program
 
 ## 📄 Lizenz & Legal
 
@@ -700,40 +678,7 @@ Diese Implementation wurde entwickelt um deutsche und europäische Compliance-An
 - **NIS2 Richtlinie konform** (Art. 20/21 - Incident Reporting)
 - **BSI IT-Grundschutz zertifizierungsreif** (SYS.1.1, NET.1.1, ORP.4, DER.1)
 
-## 🙏 Danksagungen & Attribution
-
-### Institutional Partners
-- **🏛️ Bundesamt für Sicherheit in der Informationstechnik (BSI)** für IT-Grundschutz Standards und KRITIS Guidance
-- **🇪🇺 European Union Agency for Cybersecurity (ENISA)** für NIS2 Implementation Guidance  
-- **💳 PCI Security Standards Council** für PCI DSS compliance requirements
-- **🔒 MITRE Corporation** für das ATT&CK Framework und SIGMA rule format
-
-### Open Source Community
-- **🔍 SIGMA Project Community** für das universelle Detection Rule Format
-- **🔧 IBM Security Community** für QRadar AQL optimization techniques
-- **🚀 Python SOAR Community** für Phantom/SOAR integration patterns
-- **📊 Grafana/Prometheus Community** für monitoring und alerting patterns
-
-### Security Research Contributors  
-- **🎓 Academic Security Research Teams** für APT behavior analysis
-- **🛡️ Cyber Threat Intelligence Community** für IOC sharing und threat attribution
-- **🔐 German Cybersecurity Community** für BSI-specific implementation guidance
-
 ---
-
-## 🔖 Metadata & Document Control
-
-**📋 Document Classification**: Unklassifiziert / Öffentlich verwendbar  
-**🔒 Security Classification**: TLP:WHITE (Traffic Light Protocol)  
-**🌍 Distribution**: Public (with export control considerations)  
-**📅 Document Version**: 2.0.0  
-**📅 Last Updated**: 2024-09-04  
-**📅 Next Review**: 2024-12-04  
-**👥 Document Owner**: BSI-QRadar Security Operations Team  
-**✅ Technical Review**: Senior QRadar Architect  
-**✅ Security Review**: Information Security Team  
-**✅ Compliance Review**: Legal & Compliance Team  
-**📞 Emergency Contact**: +49-xxx-xxx-xxxx (24/7 SOC Hotline)
 
 **⚠️ Disclaimer**: Diese Dokumentation dient Bildungs- und Implementierungszwecken. Alle Beispiele und Konfigurationen sollten an die spezifische Umgebung und Bedrohungslage angepasst werden. Die Autoren übernehmen keine Haftung für Schäden durch unsachgemäße Verwendung.
 

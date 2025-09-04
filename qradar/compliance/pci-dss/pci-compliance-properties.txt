@@ -1,0 +1,14 @@
+# PCI DSS Compliance Custom Properties
+# These properties should be configured in QRadar Console > Admin > Data Sources > Log Source Extensions > Custom Properties
+
+# PCI CDE Access Events
+pci_cde_access=select * from events where filename MATCHES '.*cardholder.*' OR filename MATCHES '.*payment.*' OR filename MATCHES '.*card.*' OR filename MATCHES '.*CDE.*'
+
+# PCI Compliance Monitoring
+pci_compliance_events=select username, sourceip, count(*) from events where category=10001 and eventtime > (NOW() - INTERVAL '24' HOUR) group by username, sourceip
+
+# PCI Administrative Actions
+pci_admin_actions=select * from events where eventname MATCHES '.*Admin.*' AND (filename MATCHES '.*PCI.*' OR destinationip MATCHES '10.0.100.*')
+
+# PCI Network Access to CDE
+pci_cde_network=select sourceip, destinationip, count(*) from flows where destinationip MATCHES '10.0.100.*' group by sourceip, destinationip having count(*) > 10

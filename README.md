@@ -660,9 +660,14 @@ LIMIT [reasonable limit - typically 500-1000];
 - **🛡️ NIST Cybersecurity Framework**: https://www.nist.gov/cyberframework
 
 ### Training & Certification
+<<<<<<< HEAD
 - **🎓 QRadar Certified Administrator**: IBM certification path
 - **🎓 QRadar Certified Analyst**: IBM certification
 - **🏆 QRadar Deployment Engineer**: IBM certification path
+=======
+- **🎓 QRadar Certified Analyst**: IBM certification path
+- **🏆 QRadar Advanced Deployment**: IBM certification path
+>>>>>>> d81f98df2e29bb1f832554a469a5abdfd72daefc
 - **📜 BSI Grundschutz Practitioner**: BSI certification program
 
 ## 📄 Lizenz & Legal
@@ -680,6 +685,19 @@ Diese Implementation wurde entwickelt um deutsche und europäische Compliance-An
 
 ---
 
+<<<<<<< HEAD
+=======
+## 🔖 Metadata & Document Control
+
+**📋 Document Classification**: Unklassifiziert / Öffentlich verwendbar  
+**🔒 Security Classification**: TLP:WHITE (Traffic Light Protocol)  
+**🌍 Distribution**: Public (with export control considerations)  
+**📅 Document Version**: 1.0.0  
+**📅 Last Updated**: 2025-09-04  
+**📅 Next Review**: 2025-12-04  
+**👥 Document Owner**: GSÖD Security Team
+
+>>>>>>> d81f98df2e29bb1f832554a469a5abdfd72daefc
 **⚠️ Disclaimer**: Diese Dokumentation dient Bildungs- und Implementierungszwecken. Alle Beispiele und Konfigurationen sollten an die spezifische Umgebung und Bedrohungslage angepasst werden. Die Autoren übernehmen keine Haftung für Schäden durch unsachgemäße Verwendung.
 
 ---

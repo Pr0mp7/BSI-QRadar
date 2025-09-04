@@ -1,0 +1,12 @@
+# Privilege Escalation Custom Properties
+# Privilege Event Category
+privilege_event_category=select * from events where eventname MATCHES '.*[Pp]rivilege.*' OR eventname MATCHES '.*[Aa]dmin.*'
+
+# Elevation Events
+elevation_events=select * from events where eventname MATCHES '.*[Ee]levation.*' OR eventname MATCHES '.*sudo.*' OR eventname MATCHES '.*runas.*'
+
+# Administrative Group Changes
+admin_group_changes=select username, hostname, count(*) from events where eventname MATCHES '.*Group.*Member.*Added.*' AND eventname MATCHES '.*Admin.*' group by username, hostname
+
+# Unusual Privilege Usage
+unusual_privilege_usage=select username, sourceip, count(*) from events where eventname MATCHES '.*Privilege.*' AND eventtime BETWEEN '22:00:00' AND '06:00:00' group by username, sourceip

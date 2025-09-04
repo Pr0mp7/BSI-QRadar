@@ -1,0 +1,12 @@
+# Brute Force Detection Custom Properties
+# Authentication Event Category
+authentication_event_category=select * from events where eventname MATCHES '.*[Aa]uth.*'
+
+# Failed Login Count
+failed_login_count=select sourceip, count(*) from events where eventname='Authentication Failed' and eventtime > (NOW() - INTERVAL '1' HOUR) group by sourceip
+
+# Successful Login After Failed Attempts
+success_after_brute_force=select sourceip, username, count(*) from events where eventname='Authentication Successful' AND sourceip IN (select sourceip from events where eventname='Authentication Failed' group by sourceip having count(*) >= 5) group by sourceip, username
+
+# Geographic Brute Force Analysis
+brute_force_geo=select sourceip, username, count(*) from events where eventname='Authentication Failed' group by sourceip, username having count(*) >= 3

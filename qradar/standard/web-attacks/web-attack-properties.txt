@@ -1,0 +1,15 @@
+# Web Application Attack Custom Properties
+# SQL Injection Attempts
+sql_injection_attempts=select * from events where uri_query MATCHES '.*UNION SELECT.*' OR uri_query MATCHES '.*DROP TABLE.*' OR uri_query MATCHES '.*INSERT INTO.*'
+
+# XSS Attack Attempts
+xss_attempts=select * from events where uri_query MATCHES '.*<script>.*' OR uri_query MATCHES '.*javascript:.*' OR uri_query MATCHES '.*onerror=.*'
+
+# Path Traversal Attempts
+path_traversal=select * from events where uri_query MATCHES '.*/\.\..*' OR uri_query MATCHES '.*\\\.\..*'
+
+# Command Injection Attempts
+command_injection=select * from events where uri_query MATCHES '.*exec\(.*' OR uri_query MATCHES '.*cmd\.exe.*' OR uri_query MATCHES '.*/bin/sh.*'
+
+# Suspicious User Agents
+suspicious_user_agents=select sourceip, user_agent, count(*) from events where user_agent MATCHES '.*sqlmap.*' OR user_agent MATCHES '.*nikto.*' OR user_agent MATCHES '.*nmap.*' group by sourceip, user_agent

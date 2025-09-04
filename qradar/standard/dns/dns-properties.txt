@@ -1,0 +1,12 @@
+# DNS Tunneling Custom Properties
+# Long DNS Queries
+long_dns_queries=select * from events where categoryname='DNS' AND LENGTH(query_name) >= 50
+
+# Suspicious DNS Query Types
+suspicious_dns_types=select sourceip, query_type, count(*) from events where categoryname='DNS' AND query_type IN ('TXT','NULL','CNAME') group by sourceip, query_type having count(*) > 100
+
+# DNS Query Frequency Analysis
+dns_query_frequency=select sourceip, COUNT(*) as query_count, COUNT(DISTINCT query_name) as unique_queries from events where categoryname='DNS' AND eventtime > (NOW() - INTERVAL '1' HOUR) group by sourceip having COUNT(*) > 1000
+
+# Encoded DNS Data Detection
+encoded_dns_data=select * from events where categoryname='DNS' AND (query_name MATCHES '.*[0-9a-f]{32,}.*' OR query_name MATCHES '.*[A-Za-z0-9+/]{20,}.*')

@@ -1,0 +1,12 @@
+# Network Scanning Custom Properties
+# Port Scanning Detection
+port_scanning=select sourceip, COUNT(DISTINCT destinationport) as ports, COUNT(*) as attempts from flows where action IN ('BLOCK','DENY','DROP') group by sourceip having COUNT(DISTINCT destinationport) > 10
+
+# Network Sweeping Detection
+network_sweeping=select sourceip, COUNT(DISTINCT destinationip) as hosts, COUNT(*) as attempts from flows where action IN ('BLOCK','DENY','DROP') group by sourceip having COUNT(DISTINCT destinationip) > 20
+
+# Vulnerability Scanning Patterns
+vulnerability_scanning=select sourceip, destinationport, count(*) from flows where destinationport IN (21,22,23,25,53,80,110,143,443,993,995,1433,1521,3389,5432) AND action='BLOCK' group by sourceip, destinationport having count(*) > 5
+
+# Reconnaissance Time Analysis
+recon_time_analysis=select sourceip, EXTRACT(HOUR FROM eventtime) as hour, count(*) from flows where action IN ('BLOCK','DENY','DROP') group by sourceip, EXTRACT(HOUR FROM eventtime) having count(*) > 100

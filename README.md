@@ -684,9 +684,6 @@ Diese Implementation wurde entwickelt um deutsche und europäische Compliance-An
 - **BSI IT-Grundschutz zertifizierungsreif** (SYS.1.1, NET.1.1, ORP.4, DER.1)
 
 ---
-
-<<<<<<< HEAD
-=======
 ## 🔖 Metadata & Document Control
 
 **📋 Document Classification**: Unklassifiziert / Öffentlich verwendbar  
@@ -697,7 +694,8 @@ Diese Implementation wurde entwickelt um deutsche und europäische Compliance-An
 **📅 Next Review**: 2025-12-04  
 **👥 Document Owner**: GSÖD Security Team
 
->>>>>>> d81f98df2e29bb1f832554a469a5abdfd72daefc
+---
+
 **⚠️ Disclaimer**: Diese Dokumentation dient Bildungs- und Implementierungszwecken. Alle Beispiele und Konfigurationen sollten an die spezifische Umgebung und Bedrohungslage angepasst werden. Die Autoren übernehmen keine Haftung für Schäden durch unsachgemäße Verwendung.
 
 ---

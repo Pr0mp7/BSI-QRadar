@@ -83,140 +83,29 @@ BSI-QRadar/
 ├── README.md                       # Dieses Dokument
 ├── LICENSE                         # MIT License
 ├── docs/                           # 📚 Hauptdokumentation
-│   ├── QRadar-Standard-Use-Cases.md           # 10 Standard SIEM Use Cases
-│   ├── QRadar-Regulatory-Compliance-Use-Cases.md  # Compliance Use Cases  
-│   ├── BSI-Grundschutz-QRadar-Implementation.md   # BSI-konforme Implementierung
-│   ├── SOAR-CICD-Pipeline-Playbooks.md           # SOAR CI/CD Pipeline
-│   └── APT-Use-Cases-Government-Agencies.md      # APT Detection für Behörden
-├── sigma-rules/                    # 🔍 SIGMA Detection Rules (19 Rules)
-│   ├── compliance/                 # 📋 Compliance-spezifische Rules (9 Rules)
-│   │   ├── pci-dss/               # PCI DSS 10.2, 11.4
-│   │   │   ├── pci-10.2-cardholder-data-access.yml
-│   │   │   └── pci-11.4-intrusion-detection.yml
-│   │   ├── nis2/                  # NIS2 Directive Articles 20, 21
-│   │   │   ├── nis2-21-incident-detection.yml
-│   │   │   └── nis2-20-supply-chain-monitoring.yml
-│   │   ├── kritis/                # KRITIS Regulation
-│   │   │   └── kritis-infrastructure-protection.yml
-│   │   ├── gdpr/                  # GDPR Article 32
-│   │   │   └── gdpr-32-data-access-monitoring.yml
-│   │   ├── bsi-grundschutz/       # BSI IT-Grundschutz SYS.1.1
-│   │   │   └── bsi-sys11-system-configuration.yml
-│   │   ├── iso-27001/             # ISO 27001 A.16.1
-│   │   │   └── iso27001-a161-incident-management.yml
-│   │   └── nist-csf/              # NIST CSF DE.CM
-│   │       └── nist-csf-de-cm-continuous-monitoring.yml
-│   └── standard/                  # 🎯 Standard Use Case Rules (10 Rules)
-│       ├── authentication/        # Brute Force Detection
-│       │   └── brute-force-attack.yml
-│       ├── privilege-escalation/  # Privilege Escalation
-│       │   └── privilege-escalation-detection.yml
-│       ├── malware/              # C2 Communication
-│       │   └── malware-c2-communication.yml
-│       ├── exfiltration/         # Data Exfiltration  
-│       │   └── data-exfiltration-detection.yml
-│       ├── lateral-movement/     # Lateral Movement
-│       │   └── lateral-movement-detection.yml
-│       ├── insider-threat/       # Insider Threats
-│       │   └── insider-threat-detection.yml
-│       ├── web-attacks/          # Web Application Attacks
-│       │   └── web-application-attacks.yml
-│       ├── dns/                  # DNS Tunneling
-│       │   └── dns-tunneling-detection.yml  
-│       ├── account-anomaly/      # Account Anomalies
-│       │   └── account-anomaly-detection.yml
-│       └── reconnaissance/       # Network Scanning
-│           └── network-scanning-detection.yml
-├── qradar/                        # ⚙️ QRadar Implementation (23 AQL Queries)
-│   ├── compliance/               # 📊 Compliance AQL Queries (13 Queries)
-│   │   ├── pci-dss/              # PCI DSS Monitoring
-│   │   │   ├── pci-cardholder-data-access.sql
-│   │   │   └── pci-compliance-properties.txt
-│   │   ├── nis2/                 # NIS2 Directive Monitoring  
-│   │   │   ├── nis2-incident-detection.sql
-│   │   │   └── nis2-supply-chain-monitoring.sql
-│   │   ├── kritis/               # KRITIS Infrastructure Monitoring
-│   │   │   └── kritis-critical-systems.sql
-│   │   ├── gdpr/                 # GDPR Data Protection Monitoring
-│   │   │   ├── gdpr-personal-data-access.sql
-│   │   │   └── gdpr-data-breach-detection.sql
-│   │   ├── bsi-grundschutz/      # BSI System Hardening
-│   │   │   ├── bsi-system-hardening.sql
-│   │   │   └── bsi-properties.txt
-│   │   ├── iso-27001/            # ISO 27001 Security Management
-│   │   │   ├── iso27001-incident-management.sql
-│   │   │   └── iso27001-asset-monitoring.sql
-│   │   ├── nist-csf/             # NIST Cybersecurity Framework
-│   │   │   ├── nist-continuous-monitoring.sql
-│   │   │   └── nist-properties.txt
-│   │   └── compliance-dashboard-queries.sql  # Dashboard Summary Queries
-│   └── standard/                 # 🔍 Standard Use Case Queries (10 Queries)
-│       ├── authentication/       # Authentication Monitoring
-│       │   ├── brute-force-detection.sql
-│       │   └── brute-force-properties.txt
-│       ├── privilege-escalation/ # Privilege Monitoring  
-│       │   ├── privilege-escalation-detection.sql
-│       │   └── privilege-escalation-properties.txt
-│       ├── malware/              # Malware Detection
-│       │   ├── malware-c2-detection.sql
-│       │   └── malware-properties.txt
-│       ├── exfiltration/         # Data Loss Prevention
-│       │   └── data-exfiltration-detection.sql
-│       ├── lateral-movement/     # Network Movement Tracking
-│       │   └── lateral-movement-detection.sql  
-│       ├── insider-threat/       # Internal Threat Monitoring
-│       │   └── insider-threat-detection.sql
-│       ├── web-attacks/          # Web Security Monitoring
-│       │   ├── web-application-attacks.sql
-│       │   └── web-attack-properties.txt
-│       ├── dns/                  # DNS Security Monitoring
-│       │   ├── dns-tunneling-detection.sql
-│       │   └── dns-properties.txt
-│       ├── account-anomaly/      # Behavioral Analysis
-│       │   └── account-anomaly-detection.sql
-│       ├── reconnaissance/       # Network Security Monitoring
-│       │   ├── network-scanning-detection.sql
-│       │   └── scanning-properties.txt
-│       └── standard-dashboard-queries.sql    # Operations Dashboard
-├── playbooks/                    # 🤖 SOAR Automation Playbooks
-│   ├── incident-response/        # Incident Response Automation
-│   │   ├── malware_response_playbook.py
-│   │   ├── data_breach_response_playbook.py
-│   │   └── apt_response_playbook.py
-│   ├── compliance/              # Compliance Automation
-│   │   ├── pci_dss_compliance_playbook.py
-│   │   ├── nis2_incident_reporting_playbook.py
-│   │   └── gdpr_breach_notification_playbook.py
-│   └── threat-hunting/          # Proactive Threat Hunting
-│       ├── apt_hunting_playbook.py
-│       ├── insider_threat_hunting_playbook.py
-│       └── lateral_movement_hunting_playbook.py
-├── scripts/                      # 🔧 Deployment & Maintenance Scripts
-│   ├── deployment/              # Automated Deployment
-│   │   ├── deploy-sigma-rules.sh
-│   │   ├── deploy-qradar-queries.sh
-│   │   ├── setup-custom-properties.sh
-│   │   └── validate-deployment.sh
-│   ├── monitoring/              # Health Check & Monitoring
-│   │   ├── bsi-compliance-check.py
-│   │   ├── performance-monitor.py
-│   │   └── rule-effectiveness-check.py
-│   └── backup/                  # Backup & Recovery
-│       ├── backup-qradar-config.sh
-│       └── restore-configuration.sh
-└── examples/                     # 📋 Examples & Templates
-    ├── configurations/          # Sample Configurations
-    │   ├── dsm-configurations.yml
-    │   ├── log-source-templates.yml
-    │   └── network-hierarchy.yml
-    ├── dashboards/             # QRadar Dashboard Exports
-    │   ├── compliance-dashboard.xml
-    │   ├── security-operations-dashboard.xml
-    │   └── executive-summary-dashboard.xml
-    └── tests/                  # Test Cases & Validation
-        ├── sigma-rule-tests.py
-        ├── aql-query-tests.py
-        └── integration-tests.py
+│   ├── APT-Detection.md            # APT Detection für Behörden
+│   ├── BSI-Implementation.md       # BSI-konforme Implementierung
+│   ├── Compliance-Use-Cases.md     # Compliance Use Cases
+│   ├── SOAR-Pipeline.md            # SOAR CI/CD Pipeline
+│   └── Standard-Use-Cases.md       # 10 Standard SIEM Use Cases
+├── sigma-rules/                    # 🔍 SIGMA Detection Rules
+│   ├── README.md                   # SIGMA Rules Dokumentation
+│   ├── apt/                        # 🎯 APT Detection Rules
+│   ├── compliance/                 # 📋 Compliance-spezifische Rules
+│   └── standard/                   # 🔍 Standard Use Case Rules
+├── qradar/                         # ⚙️ QRadar Implementation
+│   ├── README.md                   # QRadar AQL Dokumentation
+│   ├── compliance/                 # 📊 Compliance AQL Queries
+│   ├── properties/                 # 🏷️ Custom Property Definitions
+│   ├── rules/                      # 📏 QRadar Rule Templates
+│   ├── searches/                   # 🔍 Saved Search Templates
+│   └── standard/                   # 🎯 Standard Use Case Queries
+├── playbooks/                      # 🤖 SOAR Automation Playbooks
+│   └── incident-response/          # 🚨 Incident Response Automation
+└── scripts/                        # 🔧 Deployment & Maintenance Scripts
+    ├── README.md                   # Script Documentation
+    ├── deployment/                 # 🚀 Automated Deployment
+    └── monitoring/                 # 📊 Health Check & Monitoring
 ```
 
 ## 🔍 SIGMA Rules

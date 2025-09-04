@@ -1,0 +1,37 @@
+title: NIST CSF - Continuous Security Monitoring
+id: nist-csf-de-cm-001
+status: stable
+description: Implements continuous monitoring per NIST CSF Detect function
+references:
+    - https://www.nist.gov/cyberframework
+author: BSI-QRadar Security Team
+date: 2024/01/01
+modified: 2024/01/01
+tags:
+    - nist_csf
+    - detect_function
+    - de_cm
+    - continuous_monitoring
+    - attack.discovery
+    - attack.t1046
+    - attack.t1057
+logsource:
+    category: security
+detection:
+    selection:
+        monitoring_type:
+            - 'network_monitoring'
+            - 'host_monitoring'
+            - 'application_monitoring'
+        anomaly_detected: true
+    condition: selection
+falsepositives:
+    - Baseline establishment activities
+    - Legitimate system changes
+level: medium
+fields:
+    - monitoring_type
+    - anomaly_type
+    - baseline_deviation
+    - risk_score
+    - affected_systems

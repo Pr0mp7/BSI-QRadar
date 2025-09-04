@@ -1,0 +1,41 @@
+title: GDPR - Personal Data Access Monitoring
+id: gdpr-32-001-data-access-monitoring
+status: stable
+description: Monitors access to systems containing personal data per GDPR requirements
+references:
+    - https://eur-lex.europa.eu/eli/reg/2016/679/oj
+author: BSI-QRadar Security Team
+date: 2024/01/01
+modified: 2024/01/01
+tags:
+    - gdpr
+    - article_32
+    - personal_data
+    - data_protection
+    - attack.collection
+    - attack.t1005
+logsource:
+    category: database
+detection:
+    selection:
+        operation:
+            - 'SELECT'
+            - 'UPDATE'
+            - 'DELETE'
+        table_name|contains:
+            - 'personal'
+            - 'customer'
+            - 'user'
+            - 'employee'
+            - 'gdpr'
+    condition: selection
+falsepositives:
+    - Legitimate business operations
+    - Automated data processing
+level: medium
+fields:
+    - operation
+    - table_name
+    - username
+    - client_ip
+    - record_count

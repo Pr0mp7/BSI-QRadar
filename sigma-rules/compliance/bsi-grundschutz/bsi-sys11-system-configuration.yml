@@ -1,0 +1,35 @@
+title: BSI Grundschutz - System Configuration Monitoring
+id: bsi-grundschutz-sys11-001
+status: stable
+description: Monitors system configurations per BSI IT-Grundschutz requirements
+references:
+    - https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Standards-und-Zertifizierung/IT-Grundschutz/it-grundschutz_node.html
+author: BSI-QRadar Security Team
+date: 2024/01/01
+modified: 2024/01/01
+tags:
+    - bsi_grundschutz
+    - sys_1_1
+    - system_hardening
+    - attack.defense_evasion
+    - attack.t1562
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID:
+            - 4719  # System audit policy changed
+            - 4902  # Per-user audit policy table created
+            - 4907  # Audit policy changed
+    condition: selection
+falsepositives:
+    - Authorized policy changes
+    - System maintenance
+level: high
+fields:
+    - EventID
+    - SubjectUserName
+    - PolicyTarget
+    - CategoryName
+    - SubcategoryName

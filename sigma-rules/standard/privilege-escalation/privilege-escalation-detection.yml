@@ -1,0 +1,36 @@
+title: Privilege Escalation Detection
+id: 3f76db78-42d3-5g8f-c5f1-8f234567890b
+status: experimental
+description: Detects potential privilege escalation attempts
+author: BSI-QRadar Security Team
+date: 2024/01/01
+modified: 2024/01/01
+tags:
+    - attack.privilege_escalation
+    - attack.t1068
+    - attack.t1078
+    - attack.t1548
+logsource:
+    product: windows
+    service: security
+detection:
+    selection1:
+        EventID: 4672
+        PrivilegeList|contains: 'SeDebugPrivilege'
+    selection2:
+        EventID: 4624
+        LogonType: 2
+        TokenElevationType: 'TokenElevationTypeDefault'
+    condition: selection1 or selection2
+falsepositives:
+    - Legitimate administrative activities
+    - Scheduled maintenance tasks
+    - Authorized privilege assignments
+level: high
+fields:
+    - EventID
+    - SubjectUserName
+    - PrivilegeList
+    - TokenElevationType
+    - ProcessName
+    - IpAddress

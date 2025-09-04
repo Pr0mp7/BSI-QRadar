@@ -665,9 +665,6 @@ LIMIT [reasonable limit - typically 500-1000];
 
 ### Official Support Channels
 - **🎫 Technical Support**: [Create GitHub Issue](https://github.com/Pr0mp7/BSI-QRadar/issues)
-- **💬 Community Discord**: [Join BSI-QRadar Community](https://discord.gg/bsi-qradar)
-- **📧 Email Support**: bsi-qradar-support@[domain].com
-- **🚨 Security Issues**: security@[domain].com (PGP encrypted)
 
 ### German Government & BSI Resources
 - **🏛️ BSI Cyber-Sicherheitsberatung**: https://www.bsi.bund.de/cyber-security-consulting
@@ -682,10 +679,9 @@ LIMIT [reasonable limit - typically 500-1000];
 - **🛡️ NIST Cybersecurity Framework**: https://www.nist.gov/cyberframework
 
 ### Training & Certification
-- **🎓 BSI-QRadar Certified Analyst**: Internal certification program
+- **🎓 QRadar Certified Analyst**: IBM certification path
 - **🏆 QRadar Advanced Deployment**: IBM certification path
 - **📜 BSI Grundschutz Practitioner**: BSI certification program
-- **🎯 SIGMA Rule Development**: Community training program
 
 ## 📄 Lizenz & Legal
 
@@ -700,25 +696,6 @@ Diese Implementation wurde entwickelt um deutsche und europäische Compliance-An
 - **NIS2 Richtlinie konform** (Art. 20/21 - Incident Reporting)
 - **BSI IT-Grundschutz zertifizierungsreif** (SYS.1.1, NET.1.1, ORP.4, DER.1)
 
-## 🙏 Danksagungen & Attribution
-
-### Institutional Partners
-- **🏛️ Bundesamt für Sicherheit in der Informationstechnik (BSI)** für IT-Grundschutz Standards und KRITIS Guidance
-- **🇪🇺 European Union Agency for Cybersecurity (ENISA)** für NIS2 Implementation Guidance  
-- **💳 PCI Security Standards Council** für PCI DSS compliance requirements
-- **🔒 MITRE Corporation** für das ATT&CK Framework und SIGMA rule format
-
-### Open Source Community
-- **🔍 SIGMA Project Community** für das universelle Detection Rule Format
-- **🔧 IBM Security Community** für QRadar AQL optimization techniques
-- **🚀 Python SOAR Community** für Phantom/SOAR integration patterns
-- **📊 Grafana/Prometheus Community** für monitoring und alerting patterns
-
-### Security Research Contributors  
-- **🎓 Academic Security Research Teams** für APT behavior analysis
-- **🛡️ Cyber Threat Intelligence Community** für IOC sharing und threat attribution
-- **🔐 German Cybersecurity Community** für BSI-specific implementation guidance
-
 ---
 
 ## 🔖 Metadata & Document Control
@@ -726,18 +703,13 @@ Diese Implementation wurde entwickelt um deutsche und europäische Compliance-An
 **📋 Document Classification**: Unklassifiziert / Öffentlich verwendbar  
 **🔒 Security Classification**: TLP:WHITE (Traffic Light Protocol)  
 **🌍 Distribution**: Public (with export control considerations)  
-**📅 Document Version**: 2.0.0  
-**📅 Last Updated**: 2024-09-04  
-**📅 Next Review**: 2024-12-04  
-**👥 Document Owner**: BSI-QRadar Security Operations Team  
-**✅ Technical Review**: Senior QRadar Architect  
-**✅ Security Review**: Information Security Team  
-**✅ Compliance Review**: Legal & Compliance Team  
-**📞 Emergency Contact**: +49-xxx-xxx-xxxx (24/7 SOC Hotline)
+**📅 Document Version**: 1.0.0  
+**📅 Last Updated**: 2025-09-04  
+**📅 Next Review**: 2025-12-04  
+**👥 Document Owner**: GSÖD Security Team
 
 **⚠️ Disclaimer**: Diese Dokumentation dient Bildungs- und Implementierungszwecken. Alle Beispiele und Konfigurationen sollten an die spezifische Umgebung und Bedrohungslage angepasst werden. Die Autoren übernehmen keine Haftung für Schäden durch unsachgemäße Verwendung.
 
 ---
-*Made with ❤️ for the German Cybersecurity Community*  
 *Built for 🇩🇪 Government Agencies & 🏢 Enterprise Organizations*  
 *Optimized for 🛡️ Critical Infrastructure Protection*

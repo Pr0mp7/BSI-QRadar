@@ -683,6 +683,5 @@ Diese Implementation wurde entwickelt um deutsche und europäische Compliance-An
 **⚠️ Disclaimer**: Diese Dokumentation dient Bildungs- und Implementierungszwecken. Alle Beispiele und Konfigurationen sollten an die spezifische Umgebung und Bedrohungslage angepasst werden. Die Autoren übernehmen keine Haftung für Schäden durch unsachgemäße Verwendung.
 
 ---
-*Made with ❤️ for the German Cybersecurity Community*  
 *Built for 🇩🇪 Government Agencies & 🏢 Enterprise Organizations*  
 *Optimized for 🛡️ Critical Infrastructure Protection*

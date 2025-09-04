@@ -1,0 +1,41 @@
+title: APT Spear-Phishing gegen Regierungsmitarbeiter
+id: apt-spearphish-gov-001
+status: experimental
+description: Erkennt verdächtige E-Mails mit APT-typischen Spear-Phishing-Indikatoren
+references:
+    - https://attack.mitre.org/techniques/T1566/001/
+tags:
+    - attack.initial_access
+    - attack.t1566.001
+    - apt.spearphishing
+    - government.targeted
+logsource:
+    product: email_security_gateway
+    service: email
+detection:
+    selection_subject:
+        subject|contains:
+            - 'Dringend'
+            - 'Vertraulich'
+            - 'Geheim'
+            - 'Klassifiziert'
+            - 'Sicherheitsupdate'
+    selection_sender:
+        sender_domain|endswith:
+            - '.gov.fake'
+            - '.government.fake' 
+            - '.bundesamt.fake'
+        sender_display_name|contains:
+            - 'Bundesamt'
+            - 'Ministerium'
+            - 'BSI'
+    selection_attachment:
+        has_attachment: true
+        attachment_type:
+            - '.exe'
+            - '.docm'
+            - '.xlsm'
+    condition: selection_subject and selection_sender and selection_attachment
+falsepositives:
+    - Legitimate government communications
+level: high

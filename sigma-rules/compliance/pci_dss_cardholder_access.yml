@@ -1,0 +1,30 @@
+title: PCI DSS - Cardholder Data Access
+id: pci-10.2-001-access-monitoring
+status: stable
+description: Monitors access to cardholder data environments (CDE)
+references:
+    - https://www.pcisecuritystandards.org/
+tags:
+    - pci_dss
+    - requirement_10.2
+    - cardholder_data
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID:
+            - 4663  # Object Access
+            - 4656  # Handle to Object Requested
+        ObjectType: 'File'
+    filter:
+        ObjectName|contains:
+            - 'cardholder'
+            - 'payment'
+            - 'card'
+            - 'PCI'
+    condition: selection and filter
+falsepositives:
+    - Legitimate application access
+    - Scheduled maintenance
+level: high

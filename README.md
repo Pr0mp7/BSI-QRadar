@@ -660,14 +660,11 @@ LIMIT [reasonable limit - typically 500-1000];
 - **🛡️ NIST Cybersecurity Framework**: https://www.nist.gov/cyberframework
 
 ### Training & Certification
-<<<<<<< HEAD
+
 - **🎓 QRadar Certified Administrator**: IBM certification path
 - **🎓 QRadar Certified Analyst**: IBM certification
 - **🏆 QRadar Deployment Engineer**: IBM certification path
-=======
-- **🎓 QRadar Certified Analyst**: IBM certification path
-- **🏆 QRadar Advanced Deployment**: IBM certification path
->>>>>>> d81f98df2e29bb1f832554a469a5abdfd72daefc
+
 - **📜 BSI Grundschutz Practitioner**: BSI certification program
 
 ## 📄 Lizenz & Legal

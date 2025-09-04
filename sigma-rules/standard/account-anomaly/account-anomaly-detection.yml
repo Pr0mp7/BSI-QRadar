@@ -1,0 +1,39 @@
+title: Account Anomaly Detection
+id: 0m43kj05-19k0-2n5m-j2m8-5m901234567i
+status: experimental
+description: Detects anomalous user account activities
+author: BSI-QRadar Security Team
+date: 2024/01/01
+modified: 2024/01/01
+tags:
+    - attack.persistence
+    - attack.t1078
+    - attack.t1078.001
+    - attack.t1078.002
+    - attack.t1078.003
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4624
+        LogonType:
+            - 2  # Interactive
+            - 10 # Remote interactive
+    filter:
+        LogonTime: '>=22:00'  # After hours
+    condition: selection and filter
+falsepositives:
+    - Legitimate after-hours work
+    - Shift workers
+    - Maintenance activities
+    - Different time zones
+level: low
+fields:
+    - EventID
+    - TargetUserName
+    - IpAddress
+    - WorkstationName
+    - LogonType
+    - LogonTime
+    - ProcessName

@@ -1,0 +1,35 @@
+title: Network Scanning Detection
+id: 1n54lk06-20l1-3o6n-k3n9-6n012345678j
+status: stable
+description: Detects network scanning activities
+author: BSI-QRadar Security Team
+date: 2024/01/01
+modified: 2024/01/01
+tags:
+    - attack.discovery
+    - attack.t1046
+    - attack.t1018
+    - attack.t1040
+    - attack.t1135
+logsource:
+    category: firewall
+detection:
+    selection:
+        action: 'block'
+        protocol: 'tcp'
+    condition: selection | count(destination_port) by source_ip > 20
+    timeframe: 2m
+falsepositives:
+    - Vulnerability scanners
+    - Network monitoring tools
+    - Security assessment tools
+    - Legitimate port scans
+level: medium
+fields:
+    - src_ip
+    - dest_ip
+    - dest_port
+    - protocol
+    - action
+    - scan_type
+    - ports_scanned

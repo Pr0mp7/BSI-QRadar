@@ -1,0 +1,39 @@
+title: NIS2 - Supply Chain Access Monitoring
+id: nis2-20-001-supply-chain-monitoring
+status: experimental
+description: Monitors supplier and third-party access to critical systems
+references:
+    - https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022L2555
+author: BSI-QRadar Security Team
+date: 2024/01/01
+modified: 2024/01/01
+tags:
+    - nis2_directive
+    - article_20
+    - supply_chain_security
+    - attack.persistence
+    - attack.t1078
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4624  # Successful logon
+        LogonType: 3   # Network logon
+    filter:
+        UserName|contains:
+            - 'supplier_'
+            - 'vendor_'
+            - 'contractor_'
+            - 'ext_'
+    condition: selection and filter
+falsepositives:
+    - Authorized supplier activities
+    - Legitimate maintenance access
+level: medium
+fields:
+    - UserName
+    - IpAddress
+    - WorkstationName
+    - LogonType
+    - ProcessName

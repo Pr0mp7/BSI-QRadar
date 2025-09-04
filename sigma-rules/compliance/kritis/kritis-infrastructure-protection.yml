@@ -1,0 +1,40 @@
+title: KRITIS - Critical Infrastructure Threat Detection
+id: kritis-001-infrastructure-protection
+status: stable
+description: Detects threats to critical infrastructure systems per KRITIS requirements
+references:
+    - https://www.bsi.bund.de/DE/Themen/KRITIS/kritis_node.html
+author: BSI-QRadar Security Team
+date: 2024/01/01
+modified: 2024/01/01
+tags:
+    - kritis_regulation
+    - critical_infrastructure
+    - bsi_kritis_v
+    - attack.impact
+    - attack.t1485
+    - attack.t1498
+logsource:
+    category: security
+detection:
+    selection:
+        target_system_type:
+            - 'scada'
+            - 'ics'
+            - 'power_grid'
+            - 'water_treatment'
+            - 'transportation'
+        threat_level:
+            - 'high'
+            - 'critical'
+    condition: selection
+falsepositives:
+    - System maintenance
+    - Authorized testing
+level: critical
+fields:
+    - target_system_type
+    - threat_level
+    - source_ip
+    - attack_vector
+    - affected_components

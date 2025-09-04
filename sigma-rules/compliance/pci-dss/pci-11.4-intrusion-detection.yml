@@ -1,0 +1,34 @@
+title: PCI DSS - Intrusion Detection for CDE
+id: pci-11.4-001-intrusion-detection
+status: stable
+description: Detects potential intrusions into cardholder data environment
+references:
+    - https://www.pcisecuritystandards.org/
+author: BSI-QRadar Security Team
+date: 2024/01/01
+modified: 2024/01/01
+tags:
+    - pci_dss
+    - requirement_11.4
+    - intrusion_detection
+    - attack.initial_access
+    - attack.t1190
+logsource:
+    category: ids
+detection:
+    selection:
+        severity:
+            - 'high'
+            - 'critical'
+        destination_network: '10.0.100.0/24'  # CDE Network
+    condition: selection
+falsepositives:
+    - Network maintenance activities
+    - Legitimate administrative access
+level: high
+fields:
+    - src_ip
+    - dest_ip
+    - severity
+    - alert_name
+    - signature_id

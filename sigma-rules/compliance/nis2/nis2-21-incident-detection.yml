@@ -1,0 +1,37 @@
+title: NIS2 - Critical Infrastructure Incident Detection
+id: nis2-21-001-incident-detection
+status: experimental
+description: Detects incidents affecting critical infrastructure per NIS2 requirements
+references:
+    - https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022L2555
+author: BSI-QRadar Security Team
+date: 2024/01/01
+modified: 2024/01/01
+tags:
+    - nis2_directive
+    - article_21
+    - critical_infrastructure
+    - attack.impact
+    - attack.t1485
+    - attack.t1486
+logsource:
+    category: security
+detection:
+    selection:
+        event_severity:
+            - 'critical'
+            - 'high'
+        impact_assessment:
+            - 'service_disruption'
+            - 'data_compromise'
+            - 'operational_impact'
+    condition: selection
+falsepositives:
+    - Planned maintenance activities
+    - False positive alerts
+level: critical
+fields:
+    - event_severity
+    - impact_assessment
+    - affected_systems
+    - incident_category

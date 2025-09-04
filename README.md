@@ -22,16 +22,16 @@ Dieses Repository enthält eine **production-ready** BSI-konforme QRadar SIEM Im
 
 ## 📋 Inhaltsverzeichnis
 
-- [Features](#features)
-- [Repository-Struktur](#repository-struktur)
-- [SIGMA Rules](#sigma-rules)
-- [QRadar Implementation](#qradar-implementation)
-- [Use Cases](#use-cases)
-- [Compliance](#compliance)
-- [Installation](#installation)
-- [Performance](#performance)
-- [Verwendung](#verwendung)
-- [Beitrag](#beitrag)
+- [✨ Features](#-features)
+- [📁 Repository-Struktur](#-repository-struktur)
+- [🔍 SIGMA Rules](#-sigma-rules)
+- [⚙️ QRadar Implementation](#️-qradar-implementation)
+- [🎯 Use Cases](#-use-cases)
+- [✅ Compliance](#-compliance)
+- [🚀 Installation](#-installation)
+- [📈 Performance](#-performance)
+- [📖 Verwendung](#-verwendung)
+- [🤝 Beitrag](#-beitrag)
 
 ## ✨ Features
 
